@@ -36,10 +36,10 @@ public class SimpleConsumer {
     private static final Logger log = LoggerFactory.getLogger(SimpleConsumer.class);
 
     // Consumer config
-    private static final String NAME_SERVER_ADDR = "http://${instanceId}.${region}.mq-internal.aliyuncs.com:8080";
+    private static final String NAME_SERVER_ADDR = "192.168.99.88:9876;192.168.99.74:9876";
     private static final String GROUP = "GID_SIMPLE_CONSUMER";
-    private static final String TOPIC = "SINK_TOPIC";
-    private static final String TAGS = "*";
+    private static final String TOPIC = "his-clinic-service-work-flow-event";
+    private static final String TAGS = "workFlowEvent-qa3";
 
     private static RPCHook getAclRPCHook() {
         final String ACCESS_KEY = "${AccessKey}";
@@ -61,7 +61,7 @@ public class SimpleConsumer {
             e.printStackTrace();
         }
 
-        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
+        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
             for (MessageExt msg : msgs) {
                 System.out.printf("%s %s %d %s\n", msg.getMsgId(), msg.getBrokerName(), msg.getQueueId(),

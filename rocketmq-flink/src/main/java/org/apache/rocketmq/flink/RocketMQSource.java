@@ -30,7 +30,7 @@ import org.apache.flink.metrics.SimpleCounter;
 import org.apache.flink.runtime.state.CheckpointListener;
 import org.apache.flink.runtime.state.FunctionInitializationContext;
 import org.apache.flink.runtime.state.FunctionSnapshotContext;
-import org.apache.flink.shaded.curator.org.apache.curator.shaded.com.google.common.util.concurrent.ThreadFactoryBuilder;
+import org.apache.flink.shaded.curator4.com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.flink.streaming.api.checkpoint.CheckpointedFunction;
 import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction;
 import org.apache.flink.streaming.api.operators.StreamingRuntimeContext;
